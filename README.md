@@ -263,6 +263,11 @@ BUILD SUCCESSFUL in 844ms
 Oh, fun! It looks like `--dry-run` doesn't behave quite how we would have wanted either. That is probably something we
 can look past.
 
-I really don't want to relocate these plugins out to a new repo just yet. It might be time to actually have gradle
-generate my entire CI pipeline configuration? Or is there some gradle magic we can work in to treat certain tasks in a
-special way when used in the context of a composite build.
+It might be time to actually have gradle generate my entire CI pipeline configuration? Or is there some gradle magic we
+can work in to treat certain tasks in a special way when used in the context of a composite build?
+
+## TLDR:
+
+I want `./gradlew unitTestSuite` to trigger all the tasks that currently requires me to
+do `./gradlew unitTestSuite :included-project:unitTestSuite :plugins:plugin1:unitTestSuite` but without having to list
+out `:included-project:unitTestSuite :plugins:plugin1:unitTestSuite` in bash or in gradle scripts.
